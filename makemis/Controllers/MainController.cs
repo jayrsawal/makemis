@@ -12,6 +12,8 @@ namespace makemis.Controllers {
         // GET: Main
         [AllowAnonymous]
         public ActionResult Index() {
+            ViewBag.Page = "Mariana Shimabukuro";
+            ViewBag.Title = "Home";
             return View();
         }
 

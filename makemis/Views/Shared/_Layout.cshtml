@@ -12,28 +12,28 @@
     </script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="jumbotron">
+        <div class="container">
+            <div class="col-sm-12 vertical-align">
+                <h2>Mariana Akemi</h2>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-inverse">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Victoria Marie", "Index", "Main", new { area = "" }, new { @class = "navbar-brand", @id = "navbar-brand" })
+                @Html.ActionLink("Mariana Shimabukuro", "Index", "Main", new { area = "" }, new { @class = "navbar-brand", @id = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Home", "Index", "Main")</li>
-                    <li class="contact-btn"><a>Contact Me</a></li>
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Research", "Index", "Main")</li>
+                    <li>@Html.ActionLink("Curriculum Vitae", "Index", "Main")</li>
+                    <li>@Html.ActionLink("Blog", "Index", "Main")</li>
                 </ul>
-            </div>
-        </div>
-    </div>
-    <div class="jumbotron">
-        <div class="container">
-            <div class="col-sm-12 vertical-align">
-                <h2>VICTORIA MARIE</h2>
-                <img src="img/icons/vm_logo_flat.png" />
             </div>
         </div>
     </div>
@@ -42,7 +42,7 @@
     </div>
     <div id="snacks"></div>
     <footer class="footer">
-        <div class="container center-content text-muted">Copyright © 2015 <a href="">Victoria Marie</a>. All Rights Reserved.</div>
+        <div class="container center-content text-muted">Copyright © 2017 <a href="">Mariana Shimabukuro</a>. All Rights Reserved.</div>
     </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
