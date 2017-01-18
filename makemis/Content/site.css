@@ -1,0 +1,91 @@
+﻿body {
+    padding-top: 50px;
+}
+
+footer {
+    color: white;
+    background-color: #383838;
+    padding: 25px;
+}
+
+footer a {
+    color:white;
+}
+
+footer a:hover {
+    color: #ffd800;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding: 0px 15px 0px 15px;
+}
+
+.content-box {
+    margin: 0 0;
+    padding: 50px 50px 75px 50px;
+}
+
+.jumbotron {
+    margin: 0;
+}
+
+.jumbotron .container {
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    text-align:center;
+}
+
+.jumbotron h2 {
+    font-size: 4em;
+}
+
+.vertical-align {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.navbar {
+    background-color: rgba(0,0,0,0.9);
+    color: white;
+}
+
+#navbar-brand {
+    color: white;
+}
+
+ul.nav li a {
+    color: white !important;
+}
+
+.navbar-nav > li > a, .navbar-header > a, .navbar-header > button {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+}
+
+.jumbotron {
+    padding: 0 0;
+    height: 94vh;
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+.center-content {
+    margin: 0 auto;
+    width: 100%;
+    min-width: 400px;
+}
+
+#snackbar {
+    cursor: pointer;
+}
+
+.popover {
+    width: 400px;
+}
