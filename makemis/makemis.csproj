@@ -162,10 +162,21 @@
     <Content Include="Content\site.css" />
     <Content Include="Content\snackbar.css" />
     <Content Include="Global.asax" />
+    <Content Include="img\contact.png" />
+    <Content Include="img\fb.png" />
+    <Content Include="img\gp.png" />
+    <Content Include="img\lin.png" />
+    <Content Include="img\mariana_shimabukuro.png" />
+    <Content Include="img\mariana_shimabukuro_wordcloud.png" />
+    <Content Include="img\portfolio.png" />
+    <Content Include="img\resume.png" />
+    <Content Include="img\sprinkles.png" />
+    <Content Include="img\vichy.png" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="img\stars.psd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -178,6 +189,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\scrollreveal.min.js" />
     <Content Include="Scripts\site.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -186,7 +198,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="Common\Blog.cs" />
     <Compile Include="Common\Common.cs" />
+    <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\ControllerTemplate.cs" />
     <Compile Include="Auth\UserConfig.cs" />
     <Compile Include="Controllers\AuthController.cs" />
@@ -194,6 +208,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BlogModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -234,7 +249,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>61240</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

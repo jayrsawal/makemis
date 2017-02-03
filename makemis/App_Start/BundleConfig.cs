@@ -15,7 +15,8 @@ namespace makemis {
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"
-                      , "~/Scripts/respond.js"));
+                      , "~/Scripts/respond.js"
+                      , "~/Scripts/scrollreveal.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
                       "~/Scripts/site.js"));

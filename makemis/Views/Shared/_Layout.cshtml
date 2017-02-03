@@ -12,41 +12,66 @@
     </script>
 </head>
 <body>
-    <div class="jumbotron">
-        <div class="container">
-            <div class="col-sm-12 vertical-align">
-                <h2>Mariana Akemi</h2>
+    <div id="wrapper">
+        <div class="overlay"></div>
+
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                    <a></a>
+                    <div id="userphoto">
+                        <img src="/img/mariana_shimabukuro.png" />
+                    </div>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-area-chart"></i> Research <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="dropdown-header"><i class="fa fa-fw fa-book"></i> Publications</li>
+                        <li><a href="#">Text Abbreviation</a></li>
+                        <li><a href="#">Font Size</a></li>
+                        <li><a href="#">Robot Soccer</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-folder"></i> Portfolio <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="dropdown-header"><i class="fa fa-fw fa-cog"></i> Applications</li>
+                        <li><a href="#">Text Abbreviation</a></li>
+                        <li><a href="#">Font Size</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-commenting"></i> Contact</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+                <span class="hamb-middle"></span>
+                <span class="hamb-bottom"></span>
+            </button>
+            <div class="container container-table body-content center-content">
+                @RenderBody()
             </div>
+            <div class="row content-box" id="contact">
+                <div class="col-sm-12">
+                    <p>You may contact me at: <a href="mailto:marianaakemi@uoit.ca">marianaakemi.shimabukuro@uoit.ca</a></p>
+                    <p>You can also find me on <a href="https://br.linkedin.com/pub/mariana-shimabukuro/82/721/509">linkedIn</a>, <a href="http://lattes.cnpq.br/6078219842083406">lattes</a>.</p>
+                </div>
+            </div>
+            <div id="snacks"></div>
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
+            @Scripts.Render("~/bundles/js")
+            @RenderSection("scripts", required: false)
         </div>
     </div>
-    <div class="navbar navbar-inverse">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Mariana Shimabukuro", "Index", "Main", new { area = "" }, new { @class = "navbar-brand", @id = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Research", "Index", "Main")</li>
-                    <li>@Html.ActionLink("Curriculum Vitae", "Index", "Main")</li>
-                    <li>@Html.ActionLink("Blog", "Index", "Main")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container container-table body-content center-content">
-        @RenderBody()
-    </div>
-    <div id="snacks"></div>
-    <footer class="footer">
-        <div class="container center-content text-muted">Copyright © 2017 <a href="">Mariana Shimabukuro</a>. All Rights Reserved.</div>
-    </footer>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/js")
-    @RenderSection("scripts", required: false)
 </body>
 </html>
