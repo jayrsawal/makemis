@@ -1,0 +1,40 @@
+﻿@using makemis.Models;
+@using makemis.Common;
+@{
+    var blog = (BlogModel)ViewBag.Blog;
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="row content-box">
+    <div class="col-sm-12 col-lg-12 header-title scroll-reveal">
+        <h1>@blog.Title</h1>
+        <div class="row">
+            <div class="col-sm-offset-3 col-sm-6 col-lg-offset-3 col-lg-6"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-lg-12 text-center header-title-caption">
+                @blog.Caption
+            </div>
+            @if (blog.FilePath != null && blog.FilePath != "") {
+                <div class="col-sm-12 col-lg-12 text-center header-title-caption">
+                    <small>Download:</small> <a href="@blog.FilePath" target="_blank"><img src="~/img/pdf-icon.png" width="40" height="20" /></a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@if (blog.ImagePath != null && blog.ImagePath != "") {
+    <div class="row">
+
+        <div class="col-sm-12 col-lg-12 image-banner">
+            <img src="@blog.ImagePath" />
+        </div>
+    </div>
+}
+<br />
+<br />
+<div class="row content-box scroll-reveal">
+    @Html.Raw(blog.Html)
+</div>

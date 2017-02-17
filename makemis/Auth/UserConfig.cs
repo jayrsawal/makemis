@@ -23,7 +23,7 @@ namespace makemis.Auth {
             XElement ndUser = db.ExecQueryElem(cmd);
 
             if (ndUser != null) {
-                if (!ndUser.Element("lockout").IsEmpty) {
+                if (ndUser.Element("lockout") != null) {
                     throw new Exception("This user account has been locked.");
                 }
                 if (ComparePasswordHash(model.Password, ndUser.Element("passhash").Value)) {

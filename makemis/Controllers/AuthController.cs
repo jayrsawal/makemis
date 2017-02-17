@@ -87,7 +87,7 @@ namespace makemis.Controllers {
 
         private string GetRedirectUrl(string strReturnUrl) {
             if (string.IsNullOrEmpty(strReturnUrl)) {
-                return Url.Action("index", "tank");
+                return Url.Action("dashboard", "main");
             } else {
                 return strReturnUrl;
             }

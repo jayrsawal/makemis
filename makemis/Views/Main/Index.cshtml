@@ -1,33 +1,339 @@
-﻿@{
+﻿@using makemis.Models;
+@using makemis.Common;
+@using System.Collections;
+
+@{
+    var blogs = (BlogListModel)ViewBag.BlogListModel;
     Layout = "~/Views/Shared/_Layout.cshtml";
+    Hashtable aPublications = new Hashtable();
+    aPublications[1] = "/";
+    aPublications[2] = "";
+    aPublications[3] = "";
+    aPublications[4] = "";
 }
 
 
 <div class="row content-box" id="about">
-    <div class="col-sm-12 scroll-reveal">
-        <img src="~/img/mariana_shimabukuro_wordcloud.png"/>
+    <div class="col-sm-12 col-lg-12 header-title scroll-reveal">
+        <h1>Mariana Shimabukuro</h1>
+        <div class="row">
+            <div class="col-sm-offset-3 col-sm-6 col-lg-offset-3 col-lg-6"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-lg-12 text-center header-title-caption">
+                Masters of Science Candidate at <a href="http://vialab.science.uoit.ca/portfolio/mariana-shimabukuro">VIALAB</a>
+            </div>
+        </div>
     </div>
-    <div class="col-sm-8 scroll-reveal">
-        <h2>Mariana Shimabukuro</h2>
-        <h4>Graduate Studies</h4>
-        <p>
-            I am a Masters student in Computer Science, and my current project aims to investigate the best method to abbreviate words in order to fit them better in visualizations.
-
-            I have some experience in the industry where I worked with natural language processing (NLP) regarding extraction of named entity recognition (NER) in the context of law cases corpora in portuguese.
-
-            I have also worked with educational technologies applied to introducing programming techniques using robotics. During my undergraduate studies, I joined a group called GISDI, which develops applications for mobile robotics in an educational environment. This environment is taken to schools where programming lessons are given.
-
-            While still in university for my undergraduate degree, I was granted a scholarship by the Brazilian government,  named Science Without Borders. Through this scholarship, I was able to spend my third year of undergraduate studies in Canada at the University of Ontario Institute of Technology – UOIT. As an exchange student, I attained a summer position at vialab and started working on my word abbreviation studies.
-
-            In 2015, I graduated from the University of State of Sao Paulo – UNESP in Brazil with a Bachelor’s degree in Computer Science.
-
-            In my spare time, I like going to the gym; lifting weights, building muscle and doing some HIIT cardio (mostly sprinting). Well, I try to be as fit as I can. Once I am a food lover, I work out hard so I can eat more!
-        </p>
+    <div class="col-sm-12 col-lg-12 section-title scroll-reveal">
+        <h2>Education</h2>
     </div>
-    <div class="col-sm-4 scroll-reveal">
-        <h2>Research</h2>
-        <p>
-            List some of my research here
-        </p>
+    <div class="row section-item scroll-reveal">
+        <div class="col-sm-12 col-lg-12 item-title">
+            Masters of Science - Digital Media Program (expected graduation April 2017)<br />
+            <i>University of Ontario Institute of Technology - UOIT</i>
+        </div>
+        <div class="row item-list scroll-reveal">
+            <div class="col-sm-9 col-lg-9 item-text">
+                Master’s thesis “An Adaptive Crowdsourced Investigation on Word Abbreviation
+                Techniques and their Context Dependency”.
+            </div>
+            <div class="col-sm-3 col-lg-3 item-date">
+                (To be defended)
+            </div>
+        </div>
+        <div class="row item-list scroll-reveal">
+            <div class="col-sm-9 col-lg-9 item-text">
+                Collaborative Research Project “Perceptual Biases in Font Size as a Data Decoding” [1, 2].
+            </div>
+            <div class="col-sm-3 col-lg-3 item-date">
+                (2016)
+            </div>
+        </div>
+    </div>
+    <div class="row section-item scroll-reveal">
+        <div class="col-sm-12 col-lg-12 item-title">
+            Bachelor of Computer Science - First Class Honors (2011-2015)<br />
+            <i>Universidade Estadual Paulista – UNESP (Brazil)</i>
+        </div>
+        <div class="row item-list scroll-reveal">
+            <div class="col-sm-9 col-lg-9 item-text">
+                Final thesis “Simulator and library in Processing for AEDROMO” [3].
+            </div>
+            <div class="col-sm-3 col-lg-3 item-date">
+                (2015)
+            </div>
+        </div>
+        <div class="row item-list scroll-reveal">
+            <div class="col-sm-9 col-lg-9 item-text">
+                Scholarship for research project “Simulator and library in Processing for AEDROMO” [4].
+            </div>
+            <div class="col-sm-3 col-lg-3 item-date">
+                (2014)
+            </div>
+        </div>
+        <div class="row item-list scroll-reveal">
+            <div class="col-sm-9 col-lg-9 item-text">
+                <b>Scholarship for Exchange Studies in Canada</b><br />
+                <i>University of Ontario Institute of Technology - UOIT</i>
+            </div>
+            <div class="col-sm-3 col-lg-3 item-date">
+                (2013)
+            </div>
+            <div class="row item-list scroll-reveal">
+                <div class="col-sm-9 col-lg-9 item-text">
+                    Research project developed while working as a Research Assistant at VIALAB “An Evaluation (2013)
+                    of Word Abbreviation Techniques for Visualization”.
+                </div>
+            </div>
+        </div>
+        <div class="row item-list scroll-reveal">
+            <div class="col-sm-9 col-lg-9 item-text">
+                Scholarship for research project “Evaluation for a visual programming language for AEDROMO”.
+            </div>
+            <div class="col-sm-3 col-lg-3 item-date">
+                (2012)
+            </div>
+        </div>
+    </div>
+    <div class="row section-item scroll-reveal">
+        <div class="col-sm-12 col-lg-12 item-title">
+            Technician in Informatics (2008 – 2010)<br />
+            <i>Colégio Técnico Indutrial – CTI (Brazil)</i>
+        </div>
+        <div class="row item-list scroll-reveal">
+            <div class="col-sm-9 col-lg-9 item-text">
+                Scholarship for research project “A graphical interface to display behaviors in robot soccer”.
+            </div>
+            <div class="col-sm-3 col-lg-3 item-date">
+                (2010)
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+@*<div class="row">
+        <div class="col-sm-12 col-lg-12 scroll-reveal">
+            <div class="row row-centered all-blogs">
+                @for (int i = 1; i < 4; i++) {
+                    if (blogs.BlogList.Count == i + 1) {
+                        break;
+                    }
+                    BlogModel blog = blogs.BlogList.ElementAt<BlogModel>(i);
+                    if (blog.Active && blog.BlogTypeId == BlogType.Publication) {
+                        <div class="col-sm-3 col-lg-3 col-centered media">
+                            <div class="media-img">
+                                @if (blog.ImagePath != null) {
+                                    <img src="@blog.ImagePath" />
+                                } else {
+                                    <img src="~/img/mariana_shimabukuro_wordcloud.png" />
+                                }
+                            </div>
+                            <div class="media-body">
+                                <span class="media-heading">@blog.NavTitle</span>
+                                <p class="media-desc">@blog.PublishDate.ToString("MM/dd/yyyy")</p>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>*@
+<div class="row content-box">
+    <div class="col-sm-12 col-lg-12 section-title scroll-reveal">
+        <h2>Awards & Scholarships</h2>
+    </div>
+    <div class="row section-item">
+        <div class="row item-list scroll-reveal">
+            <div class="col-sm-9 col-lg-9 item-title">
+                Honorable Mention for Best Poster at IEEE Vis 2016 [1].
+            </div>
+            <div class="col-sm-3 col-lg-3 item-date">
+                (2016)
+            </div>
+        </div>
+        <div class="row item-list scroll-reveal">
+            <div class="col-sm-9 col-lg-9 item-title">
+                First Class Honors – Bachelors of Computer Science.
+            </div>
+            <div class="col-sm-3 col-lg-3 item-date">
+                (2015)
+            </div>
+        </div>
+        <div class="row item-list scroll-reveal">
+            <div class="col-sm-9 col-lg-9 item-title">
+                CNPq PIBIC – Undergraduate Research Assistant (12 months).
+            </div>
+            <div class="col-sm-3 col-lg-3 item-date">
+                (2014)
+            </div>
+        </div>
+        <div class="row item-list scroll-reveal">
+            <div class="col-sm-9 col-lg-9 item-title">
+                Science Without Borders Scholarship – Exchange Studies in Canada (12 months).
+            </div>
+            <div class="col-sm-3 col-lg-3 item-date">
+                (2013)
+            </div>
+        </div>
+        <div class="row item-list scroll-reveal">
+            <div class="col-sm-9 col-lg-9 item-title">
+                CNPq PIBIC – Undergraduate Research Assistant (12 months).
+            </div>
+            <div class="col-sm-3 col-lg-3 item-date">
+                (2012)
+            </div>
+        </div>
+        <div class="row item-list scroll-reveal">
+            <div class="col-sm-9 col-lg-9 item-title">
+                CNPq PIBIC Jr – High School Research Assistant (12 months).
+            </div>
+            <div class="col-sm-3 col-lg-3 item-date">
+                (2010)
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row content-box">
+    <div class="col-sm-12 col-lg-12 section-title scroll-reveal">
+        <h2>Work Experience</h2>
+    </div>
+    <div class="row section-item scroll-reveal">
+        <div class="row">
+            <div class="col-sm-9 col-lg-9 item-title">
+                Teaching Assistant<br />
+                <i>University of Ontario Institute of Technology (<a href="http://www.uoit.ca">http://www.uoit.ca)</a></i>
+            </div>
+            <div class="col-sm-3 col-lg-3 item-title item-date">2015-Present</div>
+        </div>
+        <div class="row item-list scroll-reveal">
+            <div class="col-sm-9 col-lg-9 item-text">
+                CSCI 2020U: Software Systems Development and Integration
+            </div>
+            <div class="col-sm-3 col-lg-3 item-date">
+                Winter 2017
+            </div>
+        </div>
+        <div class="row item-list scroll-reveal">
+            <div class="col-sm-9 col-lg-9 item-text">
+                CSCI 2000U: Scientific Data Analysis
+            </div>
+            <div class="col-sm-3 col-lg-3 item-date">
+                Fall 2016
+            </div>
+        </div>
+        <div class="row item-list scroll-reveal">
+            <div class="col-sm-9 col-lg-9 item-text">
+                CSCI 3230U: Web Application Development
+            </div>
+            <div class="col-sm-3 col-lg-3 item-date">
+                Fall 2016
+            </div>
+        </div>
+        <div class="row item-list scroll-reveal">
+            <div class="col-sm-9 col-lg-9 item-text">
+                CSCI 1030U: Introduction to Computer Science
+            </div>
+            <div class="col-sm-3 col-lg-3 item-date">
+                Fall 2015
+            </div>
+        </div>
+    </div>
+    <div class="row section-item scroll-reveal">
+        <div class="row">
+            <div class="col-sm-9 col-lg-9 item-title">
+                Java Developer<br />
+                <i>Finch Solutions (<a href="http://en.finchsolucoes.com.br">http://en.finchsolucoes.com.br</a>)</i>
+            </div>
+            <div class="col-sm-3 col-lg-3 item-title item-date">2014<br />&#160;</div>
+        </div>
+        <div class="row item-list scroll-reveal">
+            <div class="col-sm-12 col-lg-12 item-text">
+                In this position I worked with project analysis and management using Java, MySql and Eclipse IDE
+                technology. It was also part of my role to develop research related to Natural Language Processing (NLP)
+                and Artificial Intelligence (AI) where I have used Conditional Random Fields (CRF) model to create
+                techniques to predict outcome probability in law cases based on a large Portuguese law cases corpora.
+            </div>
+        </div>
+    </div>
+    <div class="row section-item scroll-reveal">
+        <div class="row">
+            <div class="col-sm-9 col-lg-9 item-title">
+                Research Assistant<br />
+                <i>VIALAB (<a href="http://vialab.science.uoit.ca">http://vialab.science.uoit.ca</a>)</i>
+            </div>
+            <div class="col-sm-3 col-lg-3 item-title item-date">2013<br />&#160;</div>
+        </div>
+        <div class="row item-list scroll-reveal">
+            <div class="col-sm-12 col-lg-12 item-text">
+                My main role in this company was to give maintenance to the system and database, besides executing
+                software testing for updates and releases as well as, implementing brand new modules for the system.
+            </div>
+        </div>
+    </div>
+    <div class="row section-item scroll-reveal">
+        <div class="row">
+            <div class="col-sm-9 col-lg-9 item-title">
+                Delphi Developer<br />
+                <i>Sigma Software (<a href="">http://www.sigmasoftware.com.br</a>)</i>
+            </div>
+            <div class="col-sm-3 col-lg-3 item-title item-date">2009<br />&#160;</div>
+        </div>
+        <div class="row item-list scroll-reveal">
+            <div class="col-sm-12 col-lg-12 item-text">
+                In this position I worked with project analysis and management using Java, MySql and Eclipse IDE
+                technology. It was also part of my role to develop research related to Natural Language Processing (NLP)
+                and Artificial Intelligence (AI) where I have used Conditional Random Fields (CRF) model to create
+                techniques to predict outcome probability in law cases based on a large Portuguese law cases corpora.
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row content-box">
+    <div class="col-sm-12 col-lg-12 section-title scroll-reveal">
+        <h2>Technical Skills</h2>
+    </div>
+    <div class="row section-item">
+        <div class="col-sm-6 col-lg-6">
+            <div class="col-sm-12 col-lg-12 item-title scroll-reveal">
+                Development Tools:
+            </div>
+            <div class="row item-list scroll-reveal">
+                <div class="col-sm-12 col-lg-12 item-text">
+                    Eclipse IDE, Brackets, IntelliJ, Processing, D3 Library and GitHub
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-12 item-title scroll-reveal">
+                Natural Language Processing Tools:
+            </div>
+            <div class="row item-list scroll-reveal">
+                <div class="col-sm-12 col-lg-12 item-text">
+                    Stanford NLP, Conditional Random Fields (CRF) models and Word2Vec
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-6 text-center scroll-reveal">
+            <img src="~/img/mariana_technical-skills.jpeg" />
+        </div>
+    </div>
+</div>
+<div class="row content-box">
+    <div class="col-sm-12 col-lg-12 section-title scroll-reveal">
+        <h2>Publications</h2>
+    </div>
+    <div class="row section-item">
+        @for (int i = 0; i < blogs.BlogList.Count; i++) {
+            BlogModel blog = blogs.BlogList[i];
+            if (blog.Reference != null && blog.Reference != "") {
+                <div class="row item-list scroll-reveal">
+                    <div class="col-sm-12 col-lg-12 item-text">
+                        <a href="@Url.Action("get", "publication", new { id = blog.Url })">
+                            <b>[@blog.DisplayOrder]</b> @blog.Reference
+                        </a>
+                    </div>
+                </div>
+                <br/>
+            }
+        }
     </div>
 </div>

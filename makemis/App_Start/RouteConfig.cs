@@ -11,6 +11,11 @@ namespace makemis {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.LowercaseUrls = true;
             routes.MapRoute(
+                name: "Publication",
+                url: "publication/{id}",
+                defaults: new { controller = "Publication", action = "Get", id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Main", action = "Index", id = UrlParameter.Optional }

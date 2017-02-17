@@ -6,13 +6,15 @@ using System.Linq;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
+using makemis.Models;
 
 namespace makemis.Controllers {
     public class MainController : ControllerTemplate {
+
         // GET: Main
         [AllowAnonymous]
         public ActionResult Index() {
-            ViewBag.Page = "Mariana Shimabukuro";
+            ViewBag.Page = "M. Shimabukuro";
             ViewBag.Title = "Home";
             return View();
         }
@@ -23,6 +25,50 @@ namespace makemis.Controllers {
                 this.LogException(Server.GetLastError());
             } catch { }
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Dashboard() {
+            ViewBag.Page = "M. Shimabukuro";
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Dashboard(BlogModel model) {
+            ViewBag.Page = "M. Shimabukuro";
+            ViewBag.Title = "Dashboard";
+            Blog b = new Blog(db);
+            if (!b.AddNewBlog(model)) {
+                ModelState.AddModelError("", "Error adding new blog post. Please make sure all fields are valid.");
+            }
+            return View();
+        }
+
+        public ActionResult Service() {
+            ViewBag.Page = "M. Shimabukuro";
+            ViewBag.Title = "Dashboard";
+            Blog b = new Blog(db);
+            string strId = Request.Params["blogid"].ToString();
+            if (Request.Params["service"] != null) {
+                switch(Request.Params["service"].ToString().ToLower()) {
+                    case "activate":
+                        b.ToggleActiveBlog(strId, true);
+                        break;
+                    case "deactivate":
+                        b.ToggleActiveBlog(strId, false);
+                        break;
+                    case "addnav":
+                        b.ToggleNavBlog(strId, true);
+                        break;
+                    case "removenav":
+                        b.ToggleNavBlog(strId, false);
+                        break;
+                    case "delete":
+                        b.DeleteBlog(strId);
+                        break;
+                }
+            }
+            return Redirect("/main/dashboard");
         }
     }
 }

@@ -8,17 +8,23 @@ using AdoLib;
 using System.Web.Mvc;
 using System.Data.SqlClient;
 using System.Security.Claims;
+using makemis.Models;
 
 namespace makemis.Common {
     public class ControllerTemplate : Controller {
         public Database db;
         public string strEnv;
         public Hashtable aFields;
+        public BlogListModel blogs;
 
         public ControllerTemplate(string _strEnv = "test") {
             this.strEnv = _strEnv;
             this.aFields = new Hashtable();
             this.SetDatabase(this.strEnv);
+            Blog b = new Blog(db);
+            this.blogs = new BlogListModel();
+            this.blogs.BlogList = b.GetBlogs();
+            ViewBag.BlogListModel = this.blogs;
         }
 
         public void SetDatabase(string _strEnv = "test") {

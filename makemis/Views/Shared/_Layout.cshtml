@@ -1,8 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@using makemis.Models;
+@using makemis.Common;
+
+@{
+    var blogs = (BlogListModel)ViewBag.BlogListModel;
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <title>@ViewBag.Page - @ViewBag.Title</title>
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/bundles/css")
@@ -25,28 +32,38 @@
                     </div>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+                    <a href="/"><i class="fa fa-fw fa-home"></i> Home</a>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-area-chart"></i> Research <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li class="dropdown-header"><i class="fa fa-fw fa-book"></i> Publications</li>
-                        <li><a href="#">Text Abbreviation</a></li>
-                        <li><a href="#">Font Size</a></li>
-                        <li><a href="#">Robot Soccer</a></li>
+                        @foreach (BlogModel blog in blogs.BlogList) {
+                            if (blog.Nav && blog.BlogTypeId == BlogType.Publication && blog.Active) {
+                                <li><a href="@Url.Action("Get", "Publication", new { id = blog.Url })">@blog.NavTitle</a></li>
+                            }
+                        }
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-folder"></i> Portfolio <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li class="dropdown-header"><i class="fa fa-fw fa-cog"></i> Applications</li>
-                        <li><a href="#">Text Abbreviation</a></li>
-                        <li><a href="#">Font Size</a></li>
+                        @foreach (BlogModel blog in blogs.BlogList) {
+                            if (blog.Nav && blog.BlogTypeId == BlogType.Application && blog.Active) {
+                                <li><a href="@Url.Action("Get", "Publication", new { id = blog.Url })">@blog.NavTitle</a></li>
+                                        }
+                                }
                     </ul>
                 </li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-commenting"></i> Contact</a>
-                </li>
+                @if (Request.IsAuthenticated) {
+                    <li>
+                        <a href="@Url.Action("dashboard", "main")">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("logout", "auth")">Logout</a>
+                    </li>
+                }
             </ul>
         </nav>
         <!-- /#sidebar-wrapper -->
@@ -57,13 +74,24 @@
                 <span class="hamb-middle"></span>
                 <span class="hamb-bottom"></span>
             </button>
+            <div class="page-header">
+                <h4>
+                    Mariana Shimabukuro
+                    @if (Request.IsAuthenticated) {
+                        <span style="opacity: 0.2"> - Admin Mode</span>
+                    }
+                </h4>
+
+            </div>
             <div class="container container-table body-content center-content">
                 @RenderBody()
             </div>
             <div class="row content-box" id="contact">
                 <div class="col-sm-12">
-                    <p>You may contact me at: <a href="mailto:marianaakemi@uoit.ca">marianaakemi.shimabukuro@uoit.ca</a></p>
-                    <p>You can also find me on <a href="https://br.linkedin.com/pub/mariana-shimabukuro/82/721/509">linkedIn</a>, <a href="http://lattes.cnpq.br/6078219842083406">lattes</a>.</p>
+                    <p>Connect with Mariana.</p>
+                    <p>
+                        <a href="mailto:marianaakemi@uoit.ca">E-mail</a><a href="https://br.linkedin.com/pub/mariana-shimabukuro/82/721/509">LinkedIn</a><a href="http://lattes.cnpq.br/6078219842083406">Lattes</a>
+                    </p>
                 </div>
             </div>
             <div id="snacks"></div>

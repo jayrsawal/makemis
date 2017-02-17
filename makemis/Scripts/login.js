@@ -10,7 +10,7 @@
 });
 
 function validatePassword() {
-    var strPattern = "^(?=.*[A-Z])(?=.*[!@#$&*_ ])(?=.*[a-z]).{8}$";
+    var strPattern = "^(?=.*[A-Z])(?=.*[!@#$&*_ ])(?=.*[a-z]).{8,}$";
 
     if ($("#Password").val().search(strPattern) != -1) {
         // success

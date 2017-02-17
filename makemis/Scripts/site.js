@@ -36,7 +36,26 @@
     });
 
     window.sr = ScrollReveal();
-    sr.reveal(".scroll-reveal", { duration: 1000, distance: "100px" });
+    sr.reveal(".scroll-reveal", { duration: 500, distance: "20px" });
+
+    $(".sidebar-nav .dropdown-menu li").mouseover(function () {
+        var widthdiff = $(this).width() - $(this).parent().width();
+        if( widthdiff > 0 ) {
+            $("a", this).css({
+                "-webkit-transform":"translate(-" + widthdiff + "px,0px)",
+                "-ms-transform":"translate(-" + widthdiff + "px,0px)",
+                "transform":"translate(-" + widthdiff + "px,0px)"
+            })
+        }
+    });
+
+    $(".sidebar-nav .dropdown-menu li").mouseout(function () {
+        $("a", this).css({
+            "-webkit-transform": "none",
+            "-ms-transform": "none",
+            "transform": "none"
+        })
+    });
 });
 
 function snack(strMessage) {

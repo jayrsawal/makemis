@@ -19,7 +19,9 @@ namespace makemis {
                       , "~/Scripts/scrollreveal.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
-                      "~/Scripts/site.js"));
+                      "~/Scripts/site.js"
+                      , "~/Scripts/resizableText.js"
+                      , "~/Scripts/abbreviationTech.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/auth").Include(
                       "~/Scripts/login.js"));
@@ -27,7 +29,8 @@ namespace makemis {
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                       "~/Content/bootstrap.css"
                       , "~/Content/site.css"
-                      , "~/Content/snackbar.css"));
+                      , "~/Content/snackbar.css"
+                      , "~/Content/resizableText.css"));
         }
     }
 }
