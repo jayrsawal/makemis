@@ -19,6 +19,7 @@ namespace makemis.Controllers
             ViewBag.Blog = blog;
             ViewBag.Page = "M. Shimabukuro";
             ViewBag.Title = blog.NavTitle;
+            this.PageViewLog(Request);
             return View("Index");
         }
 
@@ -26,6 +27,7 @@ namespace makemis.Controllers
         public ActionResult Publication() {
             ViewBag.Page = "M. Shimabukuro";
             ViewBag.Title = "Publications";
+            this.PageViewLog(Request);
             return View();
         }
 
@@ -33,6 +35,7 @@ namespace makemis.Controllers
         public ActionResult Application() {
             ViewBag.Page = "M. Shimabukuro";
             ViewBag.Title = "Publications";
+            this.PageViewLog(Request);
             return View();
         }
     }

@@ -15,6 +15,7 @@ namespace makemis.Controllers {
     public class AuthController : ControllerTemplate {
         // GET: Auth
         public ActionResult Index() {
+            this.PageViewLog(Request);
             return View();
         }
 
@@ -28,6 +29,7 @@ namespace makemis.Controllers {
             LoginModel model = new LoginModel {
                 ReturnUrl = strReturnUrl
             };
+            this.PageViewLog(Request);
             return View(model);
         }
 
@@ -58,11 +60,13 @@ namespace makemis.Controllers {
             RegisterModel model = new RegisterModel {
                 ReturnUrl = "/Auth/Login"
             };
+            this.PageViewLog(Request);
             return View(model);
         }
 
         [HttpPost]
         public ActionResult Register(RegisterModel model) {
+            this.PageViewLog(Request);
             if (!ModelState.IsValid) {
                 return View();
             }
@@ -82,6 +86,7 @@ namespace makemis.Controllers {
             var authManager = ctx.Authentication;
 
             authManager.SignOut("ApplicationCookie");
+            this.PageViewLog(Request);
             return RedirectToAction("login", "auth");
         }
 

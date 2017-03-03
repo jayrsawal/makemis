@@ -518,6 +518,13 @@ html {
         color: white;
     }
 
+    .page-header h4 a {
+        color: white;
+    }
+
+    .page-header h4 a:hover {
+        color: white;
+    }
 
 .feature {
     display: block;

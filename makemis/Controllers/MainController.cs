@@ -16,20 +16,23 @@ namespace makemis.Controllers {
         public ActionResult Index() {
             ViewBag.Page = "M. Shimabukuro";
             ViewBag.Title = "Home";
+            this.PageViewLog(Request);
             return View();
         }
 
         [AllowAnonymous]
         public ActionResult Error() {
             try {
-                this.LogException(Server.GetLastError());
+                // can never let this error or else we're fucked
+                this.LogException(Request, Server.GetLastError());
             } catch { }
-            return View();
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
         public ActionResult Dashboard() {
             ViewBag.Page = "M. Shimabukuro";
+            this.PageViewLog(Request);
             return View();
         }
 
@@ -41,6 +44,7 @@ namespace makemis.Controllers {
             if (!b.AddNewBlog(model)) {
                 ModelState.AddModelError("", "Error adding new blog post. Please make sure all fields are valid.");
             }
+            this.PageViewLog(Request);
             return View();
         }
 
@@ -68,6 +72,7 @@ namespace makemis.Controllers {
                         break;
                 }
             }
+            this.PageViewLog(Request);
             return Redirect("/main/dashboard");
         }
     }
