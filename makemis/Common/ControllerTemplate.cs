@@ -79,7 +79,7 @@ namespace makemis.Common {
                 strMessage += " \\ " + ex2.Message;
             }
 
-            SqlCommand cmd = new SqlCommand("insert into systemerror(errortext, uri, userid, ref) values(@error, @uri, @userid, @ref)");
+            SqlCommand cmd = new SqlCommand("insert into systemerror(errortext, url, userid, ref) values(@error, @uri, @userid, @ref)");
             cmd.Parameters.AddWithValue("@error", strMessage);
             if (r.Url != null) {
                 cmd.Parameters.AddWithValue("@uri", r.Url.AbsoluteUri);
