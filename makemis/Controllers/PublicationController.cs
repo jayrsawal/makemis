@@ -26,7 +26,7 @@ namespace makemis.Controllers
         [AllowAnonymous]
         public ActionResult Publication() {
             ViewBag.Page = "M. Shimabukuro";
-            ViewBag.Title = "Publications";
+            ViewBag.Title = "Publicatixons";
             this.PageViewLog(Request);
             return View();
         }
