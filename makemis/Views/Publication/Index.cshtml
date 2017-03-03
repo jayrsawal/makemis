@@ -2,7 +2,7 @@
 @using makemis.Common;
 @{
     var blog = (BlogModel)ViewBag.Blog;
-    ViewBag.Title = "Index";
+    ViewBag.Title = blog.NavTitle;
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
