@@ -7,6 +7,7 @@ using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
 using makemis.Models;
+using Newtonsoft.Json;
 
 namespace makemis.Controllers {
     public class MainController : ControllerTemplate {
@@ -46,6 +47,22 @@ namespace makemis.Controllers {
             }
             this.PageViewLog(Request);
             return View();
+        }
+
+        public string AjaxService() {
+            ViewBag.Page = "M. Shimabukuro";
+            ViewBag.Title = "Dashboard";
+            Blog b = new Blog(db);
+            BlogModel blog = new BlogModel();
+            string strId = Request.Params["blogid"].ToString();
+            if (Request.Params["service"] != null) {
+                switch (Request.Params["service"].ToString().ToLower()) {
+                    case "getblog":
+                        blog = b.GetBlog(strId, true);
+                        break;
+                }
+            }
+            return JsonConvert.SerializeObject(blog);
         }
 
         public ActionResult Service() {

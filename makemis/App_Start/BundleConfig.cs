@@ -20,6 +20,7 @@ namespace makemis {
 
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
                       "~/Scripts/site.js"
+                      , "~/Scripts/dashboard.js"
                       , "~/Scripts/resizableText.js"
                       , "~/Scripts/abbreviationTech.js"));
 

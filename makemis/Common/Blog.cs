@@ -44,14 +44,24 @@ where b.deleted is null ";
 
 
 
-        public BlogModel GetBlog(string strId) {
+        public BlogModel GetBlog(string strId, bool bGUID = false) {
             BlogModel blog = new BlogModel();
 
-            SqlCommand cmd = new SqlCommand(@"select * from blog where url=@id");
-            cmd.Parameters.AddWithValue("@id", strId);
+            SqlCommand cmd;
+            if (bGUID) {
+                cmd = new SqlCommand(@"select * from blog where id=@id");
+            } else {
+                cmd = new SqlCommand(@"select * from blog where url=@id");
+            }
+            if (strId != null) {
+                cmd.Parameters.AddWithValue("@id", strId);
+            } else {
+                cmd.Parameters.AddWithValue("@id", DBNull.Value);
+            }
             XElement nd = db.ExecQueryElem(cmd, "Blog");
-
-            blog.SerializeFromXml(nd);
+            if (nd != null) {
+                blog.SerializeFromXml(nd);
+            }
             return blog;
         }
 

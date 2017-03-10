@@ -56,6 +56,16 @@
             "transform": "none"
         })
     });
+
+    $(".data-table").DataTable();
+    $('textarea#Html').froalaEditor({
+        //paragraphStyles: {
+        //    class1: 'Class 1',
+        //    class2: 'Class 2'
+        //},
+        heightMin: 300,
+        toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', 'insertLink', 'insertTable', 'fontFamily', 'fontSize', '|', 'paragraphStyle', 'paragraphFormat', 'align', 'undo', 'redo', 'html']
+    });
 });
 
 function snack(strMessage) {
